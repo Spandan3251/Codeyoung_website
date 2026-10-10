@@ -1,0 +1,159 @@
+/* Shared sky-blue + white theme for every page. Loaded from main.jsx AFTER styles.css so it can override it.
+   Dark navy = header / footer / key cards. Sky blue = page. White = text and the main action button. */
+:root{
+  --sky:#C532EA; --sky-mid:#BE0A88; --sky-deep:#6C0853; --sky-light:#F8A2E8;
+  --navy:#3d0735; --navy-2:#5e0a4c;
+  --white:#fff; --soft:rgba(255,255,255,.78); --faint:rgba(255,255,255,.58);
+  --glass:rgba(255,255,255,.12); --glass-line:rgba(255,255,255,.26); --dark-card:rgba(61,7,53,.5);
+  --shadow:0 22px 50px -24px rgba(40,0,35,.65);
+  font-family:'DM Sans',sans-serif;color:#fff;
+}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+:root{background:#6C0853}
+body{background:transparent;color:#fff}
+.app-shell{background:radial-gradient(900px 500px at 85% -5%,#FA5BD2 0,transparent 60%),linear-gradient(180deg,#C532EA 0,#BE0A88 45%,#6C0853 100%)}
+::selection{background:#fff;color:var(--sky-deep)}
+
+/* ---- Navbar (dark) ---- */
+.site-nav{position:sticky;top:0;z-index:50;height:72px;background:rgba(61,7,53,.92);backdrop-filter:saturate(1.4) blur(12px);border-bottom:1px solid rgba(255,255,255,.08);transition:box-shadow .2s}
+.site-nav.scrolled{box-shadow:0 14px 34px -18px rgba(40,0,35,.8)}
+.brand{color:#fff}
+.brand-light{color:var(--sky-light)}
+.brand-mark{background:#fff;color:var(--sky-deep);box-shadow:0 6px 16px -6px #F8A2E8}
+.site-links{display:flex;align-items:center;gap:4px}
+.nav-link{display:inline-flex;align-items:center;border:0;background:transparent;cursor:pointer;padding:10px 15px;border-radius:999px;font:inherit;font-size:14px;font-weight:600;color:#f6cdee;transition:background .15s,color .15s}
+.nav-link:hover{background:rgba(255,255,255,.12);color:#fff}
+.nav-link.active{background:var(--sky);color:#fff}
+.nav-cta{margin-left:10px}
+.nav-toggle{display:none;border:1px solid rgba(255,255,255,.3);background:transparent;border-radius:10px;width:42px;height:42px;place-items:center;cursor:pointer;color:#fff}
+
+/* ---- Main action button: white on sky blue ---- */
+.cta-button,.primary-button{background:#fff;color:var(--sky-deep);border:0;border-radius:14px;font-weight:800;box-shadow:0 12px 26px -12px rgba(40,0,35,.7);transition:transform .15s,box-shadow .15s,background .15s}
+.cta-button{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:12px 20px;font-size:14px;cursor:pointer;white-space:nowrap}
+.cta-button.big{padding:17px 28px;font-size:16px;border-radius:16px}
+.cta-button.small{padding:10px 16px;font-size:13px;border-radius:12px}
+.cta-button:hover,.primary-button:hover:not(:disabled){background:#ffe9fa;color:var(--sky-deep);transform:translateY(-2px);box-shadow:0 18px 28px -14px rgba(40,0,35,.8)}
+.cta-button:active,.primary-button:active{transform:none}
+.primary-button:disabled{opacity:.5}
+.cta-button:focus-visible,.primary-button:focus-visible,.nav-link:focus-visible,.course-hit:focus-visible,.slot:focus-visible,.cal-day:focus-visible{outline:3px solid #fff;outline-offset:2px}
+.site-nav .cta-button{background:var(--sky);color:#fff;box-shadow:0 10px 22px -10px #C532EA}
+.site-nav .cta-button:hover{background:#d85cf2;color:#fff}
+
+/* ---- Stepper (booking pages) ---- */
+.stepper{list-style:none;display:flex;justify-content:center;margin:28px auto 0;padding:0 16px;width:min(560px,100%)}
+.stepper li{flex:1;display:flex;flex-direction:column;align-items:center;gap:8px;position:relative;font-size:12px;font-weight:700;color:var(--faint)}
+.stepper li:not(:last-child):after{content:"";position:absolute;top:15px;left:calc(50% + 20px);right:calc(-50% + 20px);height:2px;background:rgba(255,255,255,.28)}
+.stepper li.done:not(:last-child):after{background:#fff}
+.step-dot{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.12);border:2px solid rgba(255,255,255,.4);font-size:13px;color:#fff}
+.stepper li.current{color:#fff}
+.stepper li.current .step-dot{background:#fff;border-color:#fff;color:var(--sky-deep);box-shadow:0 0 0 5px rgba(255,255,255,.28)}
+.stepper li.done{color:#fff}
+.stepper li.done .step-dot{background:#fff;border-color:#fff;color:var(--sky-deep)}
+
+/* ---- Booking pages ---- */
+.page-wrap{padding-top:34px}
+.page-heading h1{color:#fff}
+.page-heading p,.page-heading .muted{color:var(--soft)}
+.page-heading p b{color:#fff}
+.page-heading .eyebrow,.eyebrow{color:var(--sky-light)}
+.page-heading .period{color:var(--sky-light)}
+.panel{background:var(--dark-card);border:1px solid var(--glass-line);border-radius:24px;box-shadow:var(--shadow);backdrop-filter:blur(8px);animation:rise .5s both;color:#fff}
+.section-title h2{color:#fff}.section-title p{color:var(--soft)}
+.icon-tile{background:rgba(255,255,255,.16);color:#fff;border-radius:14px}
+.form label,.field-label{color:#fde6f8}
+.form input,.form select,.field-label input,.field-label select,.phone-row select,.phone-row input{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.32);color:#fff;border-radius:12px;transition:border-color .15s,box-shadow .15s,background .15s}
+.form input::placeholder,.phone-row input::placeholder{color:rgba(255,255,255,.5)}
+select option{color:#3d0735;background:#fff}
+.form input:focus,.form select:focus,.field-label input:focus,.field-label select:focus,.phone-row select:focus,.phone-row input:focus{border-color:#fff;background:rgba(255,255,255,.16);box-shadow:0 0 0 4px rgba(255,255,255,.22)}
+.field-error{color:#ffd0d6}
+.field-label[aria-invalid],.field-label input[aria-invalid="true"]{border-color:#ff9aa6}
+.timezone-note,.info-strip{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:var(--soft)}
+.timezone-note svg,.info-icon{color:#fff}.info-strip b{color:#fff}.info-strip span:not(.info-icon){color:var(--soft)}
+.signed-in{color:var(--soft);border-color:rgba(255,255,255,.2)}.signed-in b{color:#fff}
+
+/* calendar + slots */
+.calendar-head{color:#fff}
+.cal-nav{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.3);color:#fff}
+.cal-nav:hover:not(:disabled){background:rgba(255,255,255,.24)}
+.cal-weekday{color:var(--faint)}
+.cal-day{background:rgba(255,255,255,.08);color:#fff;border-radius:12px;transition:background .12s,transform .12s}
+.cal-day:hover:not(:disabled){background:rgba(255,255,255,.26);color:#fff;transform:translateY(-1px)}
+.cal-day.today{border-color:var(--sky-light)}
+.cal-day.selected{background:#fff;color:var(--sky-deep);border-color:#fff}
+.cal-day:disabled{background:transparent;color:rgba(255,255,255,.28)}
+.slot{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.3);color:#fff;border-radius:12px;transition:transform .12s,background .12s}
+.slot:hover{background:rgba(255,255,255,.24);color:#fff;border-color:#fff;transform:translateY(-2px)}
+.slot.selected{background:#fff;color:var(--sky-deep);border-color:#fff;box-shadow:0 10px 20px -10px rgba(0,0,0,.5)}
+.slot-count{color:var(--soft)}.slot-count b{color:#fff}
+.slot-footer{color:var(--soft);border-color:rgba(255,255,255,.2)}
+.empty-state{color:var(--soft)}.empty-state b{color:#fff}.empty-state svg{color:var(--sky-light)}
+.empty-state.large{background:var(--dark-card);border-color:var(--glass-line)}
+.no-slots{background:rgba(255,255,255,.07);border:1px dashed rgba(255,255,255,.4)}
+.no-slots b{color:#fff}
+.alert.error{background:rgba(110,10,35,.55);color:#ffe3e7;border-color:rgba(255,160,175,.5)}
+.alert.info{background:rgba(255,255,255,.12);color:#fff;border-color:rgba(255,255,255,.3)}
+.outline-button{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.45);color:#fff;border-radius:12px}
+.outline-button:hover{background:rgba(255,255,255,.22)}
+.empty-state .outline-button{background:rgba(255,255,255,.12)}
+.danger-button{background:rgba(110,10,35,.35);border:1px solid rgba(255,160,175,.6);color:#ffe3e7;border-radius:12px}
+.danger-button:hover{background:rgba(110,10,35,.6)}
+.text-link,.text-link.inline,.page-heading p .text-link{color:#fff;text-decoration:underline;text-underline-offset:3px}
+.spinner{border-color:rgba(255,255,255,.3);border-top-color:#fff}
+.center-page{color:var(--soft)}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+
+/* ---- Confirmation ticket ---- */
+.ticket{--stub:210px;display:grid;grid-template-columns:1fr var(--stub);background:linear-gradient(135deg,var(--navy) 0,var(--navy-2) 100%);border-radius:26px;box-shadow:var(--shadow);color:#fff;animation:rise .5s both;margin-bottom:22px;border:1px solid rgba(255,255,255,.14);
+  -webkit-mask:radial-gradient(circle 14px at calc(100% - var(--stub)) 0,#0000 98%,#000),radial-gradient(circle 14px at calc(100% - var(--stub)) 100%,#0000 98%,#000);-webkit-mask-composite:source-in;
+  mask:radial-gradient(circle 14px at calc(100% - var(--stub)) 0,#0000 98%,#000),radial-gradient(circle 14px at calc(100% - var(--stub)) 100%,#0000 98%,#000);mask-composite:intersect}
+.ticket-main{padding:28px 30px 26px;display:grid;gap:18px;align-content:start}
+.ticket-status{display:inline-flex;align-items:center;gap:7px;justify-self:start;padding:6px 12px;border-radius:999px;background:var(--sky);color:#fff;font-size:11px;font-weight:800;letter-spacing:1.4px;text-transform:uppercase}
+.ticket-main h2{margin:0;font-family:Manrope,sans-serif;font-size:clamp(22px,3vw,28px);letter-spacing:-.8px;line-height:1.2;color:#fff}
+.ticket-rows{margin:0;display:grid}
+.ticket-rows>div{display:grid;grid-template-columns:96px 1fr;gap:14px;align-items:baseline;padding:13px 0;border-top:1px dashed rgba(255,255,255,.22)}
+.ticket-rows dt{font-size:11px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--sky-light)}
+.ticket-rows dd{margin:0;font-size:15.5px;font-weight:700;line-height:1.45;color:#fff}
+.ticket-note{display:grid;grid-template-columns:18px 1fr;gap:10px;align-items:start;margin:0;font-size:13px;line-height:1.6;color:var(--soft)}
+.ticket-note svg{margin-top:2px;color:var(--sky-light)}
+.ticket-note b{color:#fff;overflow-wrap:anywhere}
+.ticket-stub{border-left:2px dashed rgba(255,255,255,.28);padding:28px 22px;display:flex;flex-direction:column;justify-content:center;gap:34px;text-align:center;background:rgba(255,255,255,.05);border-radius:0 26px 26px 0}
+.ticket .meeting-link{display:flex;align-items:center;justify-content:center;gap:8px;margin:0;padding:13px 14px;border-radius:14px;background:#fff;color:var(--sky-deep);font-size:13px;font-weight:800;transition:transform .15s}
+.ticket .meeting-link:hover{transform:translateY(-2px)}
+.ticket-ref{display:grid;gap:6px;justify-items:center}
+.ticket-ref span{font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--sky-light)}
+.ticket-ref code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:11px;line-height:1.5;color:#fde6f8;word-break:break-all}
+.ticket.is-cancelled{background:linear-gradient(135deg,#2a1530,#3b2140)}
+.ticket.is-cancelled .ticket-status{background:#e0566f}
+.ticket.is-cancelled .ticket-stub{justify-content:center}
+.confirm-actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.confirm-actions>*{min-height:44px}
+.confirm-actions .outline-button{margin-left:0}
+
+/* ---- Toast for the dummy Contact / Help links ---- */
+.toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%);z-index:80;display:grid;gap:2px;padding:14px 22px;border-radius:16px;background:var(--navy);color:#fff;border:1px solid rgba(255,255,255,.2);box-shadow:0 18px 40px -16px #000a;animation:toast .3s both;text-align:center}
+.toast span{font-size:12px;color:var(--sky-light)}
+@keyframes toast{from{opacity:0;transform:translate(-50%,14px)}to{opacity:1;transform:translate(-50%,0)}}
+
+/* ---- Footer (dark) ---- */
+.app-shell footer.site-footer{background:var(--navy);color:#e8b8dc;padding:34px 24px;text-align:left;font-size:13px}
+.footer-inner{width:min(1160px,100%);margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
+.footer-inner .brand{color:#fff}.footer-inner p{margin:0}
+
+@media(max-width:850px){
+  .nav-toggle{display:grid}
+  .site-links{position:absolute;top:72px;left:0;right:0;flex-direction:column;align-items:stretch;gap:2px;background:var(--navy);padding:12px 16px 18px;border-bottom:1px solid rgba(255,255,255,.12);box-shadow:0 24px 30px -20px #000;display:none}
+  .site-links.open{display:flex;animation:rise .2s both}
+  .nav-link{padding:13px 14px;border-radius:12px;font-size:15px}
+  .nav-cta{margin:8px 0 0;padding:14px}
+  .brand-light{display:inline}
+}
+@media(max-width:600px){
+  .ticket{grid-template-columns:1fr;--stub:0px;
+    -webkit-mask:radial-gradient(circle 14px at 0 calc(100% - 150px),#0000 98%,#000),radial-gradient(circle 14px at 100% calc(100% - 150px),#0000 98%,#000);-webkit-mask-composite:source-in;
+    mask:radial-gradient(circle 14px at 0 calc(100% - 150px),#0000 98%,#000),radial-gradient(circle 14px at 100% calc(100% - 150px),#0000 98%,#000);mask-composite:intersect}
+  .ticket-stub{border-left:0;border-top:2px dashed rgba(255,255,255,.28);border-radius:0 0 26px 26px;min-height:150px;padding:20px}
+  .ticket-main{padding:24px 20px 20px}
+  .ticket-rows>div{grid-template-columns:1fr;gap:4px}
+}
+@media(max-width:520px){.brand-light{display:none}.stepper li{font-size:11px}.site-nav{height:66px}.site-links{top:66px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
